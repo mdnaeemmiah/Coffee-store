@@ -2,10 +2,11 @@
 import { useLoaderData } from 'react-router-dom'
 import './App.css'
 import CoffeeCard from './Components/CoffeeCard';
+import { useState } from 'react';
 
 function App() {
-  const loadedCoffee = useLoaderData();
-
+  const coffees = useLoaderData();
+  const [loadedCoffee,setLoadedCoffee] = useState(coffees)
   return (
 
     <div className='max-w-7xl mx-auto'>
@@ -15,6 +16,8 @@ function App() {
           loadedCoffee.map(coffee => <CoffeeCard
             key={coffee._id}
             coffee={coffee}
+            loadedCoffee={loadedCoffee}
+            setLoadedCoffee ={setLoadedCoffee}
           ></CoffeeCard>)
         }
       </div>

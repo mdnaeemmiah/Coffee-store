@@ -22,7 +22,7 @@ const UpdatedCoffee = () => {
         console.log(updatedCoffee);
 
         
-        fetch(`http://localhost:5000/coffee/${_id}`,{
+        fetch(` https://naeem-56-52ga6vvut-ailas-projects-e6327532.vercel.app/coffee/${_id}`,{
             method: 'PUT',
             headers: {
                 'content-type' : 'application/json'

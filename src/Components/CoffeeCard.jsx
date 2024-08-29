@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee,setLoadedCoffee,loadedCoffee }) => {
     const { _id, name, quantity, supplier, taste, category, details, photo } = coffee;
     const handleDelete = _id => {
         console.log(_id);
@@ -17,7 +17,7 @@ const CoffeeCard = ({ coffee }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 
-                fetch(`http://localhost:5000/coffee/${_id}`, {
+                fetch(` https://naeem-56-52ga6vvut-ailas-projects-e6327532.vercel.app/coffee/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
@@ -28,6 +28,8 @@ const CoffeeCard = ({ coffee }) => {
                             text: "Your file has been deleted.",
                             icon: "success"
                           });
+                          const remaining = loadedCoffee.filter(coffee=> coffee._id !== _id)
+                          setLoadedCoffee(remaining);
                     })
                     
             }

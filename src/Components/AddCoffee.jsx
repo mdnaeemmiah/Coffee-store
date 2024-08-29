@@ -17,7 +17,7 @@ const AddCoffee = () => {
         console.log(newCoffee);
 
         
-        fetch('http://localhost:5000/coffee',{
+        fetch(' https://naeem-56-52ga6vvut-ailas-projects-e6327532.vercel.app/coffee',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
